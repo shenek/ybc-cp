@@ -15,11 +15,8 @@ pub fn nav() -> Html {
             { "Home" }
         </Link<Route>>
         <ybc::NavbarDropdown navlink={html!{"Layouts"}}>
-            <Link<Route> classes={classes!("navbar-item")} to={Route::Home}>
-                { "First" }
-            </Link<Route>>
-            <Link<Route> classes={classes!("navbar-item")} to={Route::Home}>
-                { "Second" }
+            <Link<Route> classes={classes!("navbar-item")} to={Route::Container}>
+                { "Container" }
             </Link<Route>>
         </ybc::NavbarDropdown>
         </>

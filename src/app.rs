@@ -4,14 +4,22 @@ use yew::prelude::*;
 use yew_router::history::{AnyHistory, History, MemoryHistory};
 use yew_router::prelude::*;
 
-use crate::components::nav::Nav;
-use crate::pages::home::Home;
-use crate::pages::page_not_found::PageNotFound;
+use crate::{
+    components::nav::Nav,
+    components::code::highlight_style,
+    pages::{
+        home::Home,
+        page_not_found::PageNotFound,
+        layout::Container,
+    }
+};
 
 #[derive(Routable, PartialEq, Eq, Clone, Debug)]
 pub enum Route {
     #[at("/")]
     Home,
+    #[at("/container/")]
+    Container,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -39,6 +47,7 @@ pub fn footer() -> Html {
 #[function_component(App)]
 pub fn app() -> Html {
     html! {
+        <>
         <BrowserRouter>
             <Nav />
             <main>
@@ -46,6 +55,8 @@ pub fn app() -> Html {
                 <Footer />
             </main>
         </BrowserRouter>
+        {highlight_style()}
+        </>
     }
 }
 
@@ -63,6 +74,7 @@ pub fn ServerApp(props: &ServerAppProps) -> Html {
         .unwrap();
 
     html! {
+        <>
         <Router history={history}>
             <Nav />
 
@@ -71,6 +83,8 @@ pub fn ServerApp(props: &ServerAppProps) -> Html {
             </main>
             <Footer />
         </Router>
+        {highlight_style()}
+        </>
     }
 }
 
@@ -78,6 +92,9 @@ fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => {
             html! { <Home /> }
+        }
+        Route::Container => {
+            html! { <Container /> }
         }
         Route::NotFound => {
             html! { <PageNotFound /> }
