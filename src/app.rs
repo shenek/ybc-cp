@@ -11,7 +11,7 @@ use crate::{
         home::Home,
         page_not_found::PageNotFound,
         layout::Container,
-        elements::Notification,
+        elements::{Notification, Block},
     }
 };
 
@@ -21,6 +21,8 @@ pub enum Route {
     Home,
     #[at("/container/")]
     Container,
+    #[at("/block/")]
+    Block,
     #[at("/notification/")]
     Notification,
     #[not_found]
@@ -98,6 +100,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::Container => {
             html! { <Container /> }
+        }
+        Route::Block => {
+            html! { <Block /> }
         }
         Route::Notification => {
             html! { <Notification /> }
