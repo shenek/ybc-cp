@@ -1,0 +1,9 @@
+[package]
+name = "ybc-cp"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ybc = "0.4.0-beta.0"
+yew = { version = "0.20", features = ["csr"]}
+yew-router = "0.17"
