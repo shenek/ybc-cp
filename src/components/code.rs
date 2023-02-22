@@ -1,21 +1,22 @@
 use syntect::{
-    html::{ClassStyle, ClassedHTMLGenerator, css_for_theme_with_class_style},
+    highlighting::ThemeSet,
+    html::{css_for_theme_with_class_style, ClassStyle, ClassedHTMLGenerator},
     parsing::SyntaxSet,
     util::LinesWithEndings,
-    highlighting::ThemeSet,
 };
 use yew::prelude::*;
 
 fn make_style() -> ClassStyle {
-    ClassStyle::SpacedPrefixed{prefix:"__ybc_cp_"}
+    ClassStyle::SpacedPrefixed {
+        prefix: "__ybc_cp_",
+    }
 }
 
 fn enrich_markup(input: &str) -> String {
     let syntax_set = SyntaxSet::load_defaults_newlines();
     let syntax = syntax_set.find_syntax_by_name("Rust").unwrap();
     let style = make_style();
-    let mut html_generator =
-        ClassedHTMLGenerator::new_with_class_style(syntax, &syntax_set, style);
+    let mut html_generator = ClassedHTMLGenerator::new_with_class_style(syntax, &syntax_set, style);
 
     for line in LinesWithEndings::from(input) {
         let _ = html_generator.parse_html_for_line_which_includes_newline(line);

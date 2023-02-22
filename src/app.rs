@@ -5,14 +5,14 @@ use yew_router::history::{AnyHistory, History, MemoryHistory};
 use yew_router::prelude::*;
 
 use crate::{
-    components::nav::Nav,
     components::code::highlight_style,
+    components::nav::Nav,
     pages::{
+        elements::{Block, Content, Notification},
         home::Home,
-        page_not_found::PageNotFound,
         layout::Container,
-        elements::{Notification, Block},
-    }
+        page_not_found::PageNotFound,
+    },
 };
 
 #[derive(Routable, PartialEq, Eq, Clone, Debug)]
@@ -23,6 +23,8 @@ pub enum Route {
     Container,
     #[at("/block/")]
     Block,
+    #[at("/content/")]
+    Content,
     #[at("/notification/")]
     Notification,
     #[not_found]
@@ -44,9 +46,8 @@ pub fn footer() -> Html {
                 { "." }
             </ybc::Content>
         </ybc::Footer>
-        
+
     }
-    
 }
 
 #[function_component(App)]
@@ -103,6 +104,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::Block => {
             html! { <Block /> }
+        }
+        Route::Content => {
+            html! { <Content /> }
         }
         Route::Notification => {
             html! { <Notification /> }

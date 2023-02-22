@@ -11,7 +11,7 @@ fn InfoTiles() -> Html {
                     <ybc::Image size={ybc::ImageSize::Is1by1}><a href={"https://yew.rs/"}><img src={"https://yew.rs/img/logo.svg"}/></a></ybc::Image>
                 </ybc::Tile>
             </ybc::Tile>
-        
+
             <ybc::Tile ctx={ybc::TileCtx::Parent}>
                 <ybc::Tile ctx={ybc::TileCtx::Child} classes={classes!("box")}>
                     <ybc::Title tag={"p"}>{ "What is Bulma?" }</ybc::Title>
