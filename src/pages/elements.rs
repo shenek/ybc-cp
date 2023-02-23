@@ -428,3 +428,593 @@ pub fn content() -> Html {
         </ybc::Container>
     }
 }
+
+#[function_component(Table)]
+pub fn table() -> Html {
+    let code_1 = r##"html! {
+    <ybc::Table>
+        <thead>
+            <tr>
+                <th>{"#"}</th>
+                <th>{"A"}</th>
+                <th>{"B"}</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>{"SUM"}</th>
+                <th>{"8"}</th>
+                <th>{"10"}</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>{"1"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+            </tr>
+            <tr>
+                <td>{"2"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+            </tr>
+        </tbody>
+    </ybc::Table>
+}"##;
+    let preview_1 = html! {
+        <ybc::Table>
+            <thead>
+                <tr>
+                    <th>{"#"}</th>
+                    <th>{"A"}</th>
+                    <th>{"B"}</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>{"SUM"}</th>
+                    <th>{"8"}</th>
+                    <th>{"10"}</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>{"1"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                </tr>
+                <tr>
+                    <td>{"2"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                </tr>
+            </tbody>
+        </ybc::Table>
+    };
+
+    let code_2 = r##"html! {
+    <ybc::Table bordered={true}>
+        <thead>
+            <tr>
+                <th>{"#"}</th>
+                <th>{"A"}</th>
+                <th>{"B"}</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>{"SUM"}</th>
+                <th>{"8"}</th>
+                <th>{"10"}</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>{"1"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+            </tr>
+            <tr>
+                <td>{"2"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+            </tr>
+        </tbody>
+    </ybc::Table>
+}"##;
+    let preview_2 = html! {
+        <ybc::Table bordered={true}>
+            <thead>
+                <tr>
+                    <th>{"#"}</th>
+                    <th>{"A"}</th>
+                    <th>{"B"}</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>{"SUM"}</th>
+                    <th>{"8"}</th>
+                    <th>{"10"}</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>{"1"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                </tr>
+                <tr>
+                    <td>{"2"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                </tr>
+            </tbody>
+        </ybc::Table>
+    };
+
+    let code_3 = r##"html! {
+    <ybc::Table striped={true}>
+        <thead>
+            <tr>
+                <th>{"#"}</th>
+                <th>{"A"}</th>
+                <th>{"B"}</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>{"SUM"}</th>
+                <th>{"8"}</th>
+                <th>{"10"}</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>{"1"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+            </tr>
+            <tr>
+                <td>{"2"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+            </tr>
+        </tbody>
+    </ybc::Table>
+}"##;
+    let preview_3 = html! {
+        <ybc::Table striped={true}>
+            <thead>
+                <tr>
+                    <th>{"#"}</th>
+                    <th>{"A"}</th>
+                    <th>{"B"}</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>{"SUM"}</th>
+                    <th>{"8"}</th>
+                    <th>{"10"}</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>{"1"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                </tr>
+                <tr>
+                    <td>{"2"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                </tr>
+            </tbody>
+        </ybc::Table>
+    };
+
+    let code_4 = r##"html! {
+    <ybc::Table narrow={true}>
+        <thead>
+            <tr>
+                <th>{"#"}</th>
+                <th>{"A"}</th>
+                <th>{"B"}</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>{"SUM"}</th>
+                <th>{"8"}</th>
+                <th>{"10"}</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>{"1"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+            </tr>
+            <tr>
+                <td>{"2"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+            </tr>
+        </tbody>
+    </ybc::Table>
+}"##;
+    let preview_4 = html! {
+        <ybc::Table narrow={true}>
+            <thead>
+                <tr>
+                    <th>{"#"}</th>
+                    <th>{"A"}</th>
+                    <th>{"B"}</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>{"SUM"}</th>
+                    <th>{"8"}</th>
+                    <th>{"10"}</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>{"1"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                </tr>
+                <tr>
+                    <td>{"2"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                </tr>
+            </tbody>
+        </ybc::Table>
+    };
+
+    let code_5 = r##"html! {
+    <ybc::Table hoverable={true}>
+        <thead>
+            <tr>
+                <th>{"#"}</th>
+                <th>{"A"}</th>
+                <th>{"B"}</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>{"SUM"}</th>
+                <th>{"8"}</th>
+                <th>{"10"}</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>{"1"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+            </tr>
+            <tr>
+                <td>{"2"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+            </tr>
+        </tbody>
+    </ybc::Table>
+}"##;
+    let preview_5 = html! {
+        <ybc::Table hoverable={true}>
+            <thead>
+                <tr>
+                    <th>{"#"}</th>
+                    <th>{"A"}</th>
+                    <th>{"B"}</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>{"SUM"}</th>
+                    <th>{"8"}</th>
+                    <th>{"10"}</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>{"1"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                </tr>
+                <tr>
+                    <td>{"2"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                </tr>
+            </tbody>
+        </ybc::Table>
+    };
+
+    let code_6 = r##"html! {
+    <ybc::Table fullwidth={true}>
+        <thead>
+            <tr>
+                <th>{"#"}</th>
+                <th>{"A"}</th>
+                <th>{"B"}</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>{"SUM"}</th>
+                <th>{"8"}</th>
+                <th>{"10"}</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>{"1"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+            </tr>
+            <tr>
+                <td>{"2"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+            </tr>
+        </tbody>
+    </ybc::Table>
+}"##;
+    let preview_6 = html! {
+        <ybc::Table fullwidth={true}>
+            <thead>
+                <tr>
+                    <th>{"#"}</th>
+                    <th>{"A"}</th>
+                    <th>{"B"}</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>{"SUM"}</th>
+                    <th>{"8"}</th>
+                    <th>{"10"}</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>{"1"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                </tr>
+                <tr>
+                    <td>{"2"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                </tr>
+            </tbody>
+        </ybc::Table>
+    };
+
+    let code_7 = r##"html! {
+    <ybc::Table scrollable={true}>
+        <tbody>
+            <tr>
+                <td>{"1"}</td>
+                <td>{"2"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+                <td>{"7"}</td>
+                <td>{"8"}</td>
+                <td>{"9"}</td>
+                <td>{"0"}</td>
+                <td>{"1"}</td>
+                <td>{"2"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+                <td>{"7"}</td>
+                <td>{"8"}</td>
+                <td>{"9"}</td>
+                <td>{"0"}</td>
+                <td>{"1"}</td>
+                <td>{"2"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+                <td>{"7"}</td>
+                <td>{"8"}</td>
+                <td>{"9"}</td>
+                <td>{"0"}</td>
+                <td>{"1"}</td>
+                <td>{"2"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+                <td>{"7"}</td>
+                <td>{"8"}</td>
+                <td>{"9"}</td>
+                <td>{"0"}</td>
+            </tr>
+            <tr>
+                <td>{"0"}</td>
+                <td>{"1"}</td>
+                <td>{"2"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+                <td>{"7"}</td>
+                <td>{"8"}</td>
+                <td>{"9"}</td>
+                <td>{"0"}</td>
+                <td>{"1"}</td>
+                <td>{"2"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+                <td>{"7"}</td>
+                <td>{"8"}</td>
+                <td>{"9"}</td>
+                <td>{"0"}</td>
+                <td>{"1"}</td>
+                <td>{"2"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+                <td>{"7"}</td>
+                <td>{"8"}</td>
+                <td>{"9"}</td>
+                <td>{"0"}</td>
+                <td>{"1"}</td>
+                <td>{"2"}</td>
+                <td>{"3"}</td>
+                <td>{"4"}</td>
+                <td>{"5"}</td>
+                <td>{"6"}</td>
+                <td>{"7"}</td>
+                <td>{"8"}</td>
+                <td>{"9"}</td>
+            </tr>
+        </tbody>
+    </ybc::Table>
+}"##;
+    let preview_7 = html! {
+        <ybc::Table scrollable={true}>
+            <tbody>
+                <tr>
+                    <td>{"1"}</td>
+                    <td>{"2"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                    <td>{"7"}</td>
+                    <td>{"8"}</td>
+                    <td>{"9"}</td>
+                    <td>{"0"}</td>
+                    <td>{"1"}</td>
+                    <td>{"2"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                    <td>{"7"}</td>
+                    <td>{"8"}</td>
+                    <td>{"9"}</td>
+                    <td>{"0"}</td>
+                    <td>{"1"}</td>
+                    <td>{"2"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                    <td>{"7"}</td>
+                    <td>{"8"}</td>
+                    <td>{"9"}</td>
+                    <td>{"0"}</td>
+                    <td>{"1"}</td>
+                    <td>{"2"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                    <td>{"7"}</td>
+                    <td>{"8"}</td>
+                    <td>{"9"}</td>
+                    <td>{"0"}</td>
+                </tr>
+                <tr>
+                    <td>{"0"}</td>
+                    <td>{"1"}</td>
+                    <td>{"2"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                    <td>{"7"}</td>
+                    <td>{"8"}</td>
+                    <td>{"9"}</td>
+                    <td>{"0"}</td>
+                    <td>{"1"}</td>
+                    <td>{"2"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                    <td>{"7"}</td>
+                    <td>{"8"}</td>
+                    <td>{"9"}</td>
+                    <td>{"0"}</td>
+                    <td>{"1"}</td>
+                    <td>{"2"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                    <td>{"7"}</td>
+                    <td>{"8"}</td>
+                    <td>{"9"}</td>
+                    <td>{"0"}</td>
+                    <td>{"1"}</td>
+                    <td>{"2"}</td>
+                    <td>{"3"}</td>
+                    <td>{"4"}</td>
+                    <td>{"5"}</td>
+                    <td>{"6"}</td>
+                    <td>{"7"}</td>
+                    <td>{"8"}</td>
+                    <td>{"9"}</td>
+                </tr>
+            </tbody>
+        </ybc::Table>
+    };
+
+    html! {
+        <ybc::Container>
+            <ybc::Section>
+                <ybc::Title>{"Table"}</ybc::Title>
+                <Preview html={preview_1} />
+                <Code code={code_1}/>
+            </ybc::Section>
+            <ybc::Section>
+                <ybc::Title>{"Table bordered"}</ybc::Title>
+                <Preview html={preview_2} />
+                <Code code={code_2}/>
+            </ybc::Section>
+            <ybc::Section>
+                <ybc::Title>{"Table striped"}</ybc::Title>
+                <Preview html={preview_3} />
+                <Code code={code_3}/>
+            </ybc::Section>
+            <ybc::Section>
+                <ybc::Title>{"Table narrow"}</ybc::Title>
+                <Preview html={preview_4} />
+                <Code code={code_4}/>
+            </ybc::Section>
+            <ybc::Section>
+                <ybc::Title>{"Table hoverable"}</ybc::Title>
+                <Preview html={preview_5} />
+                <Code code={code_5}/>
+            </ybc::Section>
+            <ybc::Section>
+                <ybc::Title>{"Table fullwidth"}</ybc::Title>
+                <Preview html={preview_6} />
+                <Code code={code_6}/>
+            </ybc::Section>
+            <ybc::Section>
+                <ybc::Title>{"Table scrollable"}</ybc::Title>
+                <Preview html={preview_7} />
+                <Code code={code_7}/>
+            </ybc::Section>
+        </ybc::Container>
+    }
+}
