@@ -24,6 +24,9 @@ pub fn nav() -> Html {
             <Link<Route> classes={classes!("navbar-item")} to={Route::Notification}>
                 { "Notification" }
             </Link<Route>>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::Progress}>
+                { "Progress" }
+            </Link<Route>>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Table}>
                 { "Table" }
             </Link<Route>>
