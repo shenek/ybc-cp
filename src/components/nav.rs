@@ -33,6 +33,9 @@ pub fn nav() -> Html {
             <Link<Route> classes={classes!("navbar-item")} to={Route::Tag}>
                 { "Tag" }
             </Link<Route>>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::Title}>
+                { "Title" }
+            </Link<Route>>
         </ybc::NavbarDropdown>
         <ybc::NavbarDropdown navlink={html!{"Layouts"}}>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Container}>

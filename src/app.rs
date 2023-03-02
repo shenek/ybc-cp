@@ -8,7 +8,7 @@ use crate::{
     components::code::highlight_style,
     components::nav::Nav,
     pages::{
-        elements::{Block, Content, Notification, Table, Progress, Tag},
+        elements::{Block, Content, Notification, Table, Progress, Tag, Title},
         home::Home,
         layout::Container,
         page_not_found::PageNotFound,
@@ -33,6 +33,8 @@ pub enum Route {
     Table,
     #[at("/elements/tag/")]
     Tag,
+    #[at("/elements/title/")]
+    Title,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -119,6 +121,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::Tag => {
             html! { <Tag /> }
+        }
+        Route::Title => {
+            html! { <Title /> }
         }
         Route::Notification => {
             html! { <Notification /> }
