@@ -19,20 +19,20 @@ use crate::{
 pub enum Route {
     #[at("/")]
     Home,
-    #[at("/container/")]
+    #[at("/layout/container/")]
     Container,
-    #[at("/block/")]
+    #[at("/elements/block/")]
     Block,
-    #[at("/content/")]
+    #[at("/elements/content/")]
     Content,
-    #[at("/table/")]
-    Table,
-    #[at("/tag/")]
-    Tag,
-    #[at("/notification/")]
+    #[at("/elements/notification/")]
     Notification,
-    #[at("/progress/")]
+    #[at("/elements/progress/")]
     Progress,
+    #[at("/elements/table/")]
+    Table,
+    #[at("/elements/tag/")]
+    Tag,
     #[not_found]
     #[at("/404")]
     NotFound,
