@@ -43,6 +43,12 @@ pub fn nav() -> Html {
     };
 
     html! {
-        <ybc::Navbar navburger={true} {navbrand} classes={classes!("is-primary")} {navstart} />
+        <ybc::Navbar
+          navburger={true}
+          {navbrand}
+          classes={classes!("is-primary")}
+          {navstart}
+          fixed={Some(ybc::NavbarFixed::Top)}
+        />
     }
 }
