@@ -1,7 +1,6 @@
 use crate::components::{code::Code, preview::Preview};
 use yew::prelude::*;
 
-
 #[function_component(Tag)]
 pub fn tag() -> Html {
     let code_1 = r#"html! {
@@ -171,21 +170,19 @@ html! {
     let show_checked = use_state_eq(|| false);
     let onclick = {
         let show_checked = show_checked.clone();
-        Callback::from(move |_|{
-            show_checked.set(!*show_checked)
-        })  
+        Callback::from(move |_| show_checked.set(!*show_checked))
     };
     let preview_6 = html! {
         <ybc::Tags has_addons={true}>
             <ybc::Tag rounded={true} classes={classes!("is-info")}>{
                 if *show_checked {
                     "Checked"
-                 
+
                 } else {
                     "Un checked"
                 }
             }</ybc::Tag>
-            <ybc::Tag 
+            <ybc::Tag
               rounded={true}
               classes={classes!("is-dark")}
               delete={true}
