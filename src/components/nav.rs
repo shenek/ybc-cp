@@ -21,6 +21,9 @@ pub fn nav() -> Html {
             <Link<Route> classes={classes!("navbar-item")} to={Route::Content}>
                 { "Content" }
             </Link<Route>>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::Icon}>
+                { "Icon" }
+            </Link<Route>>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Image}>
                 { "Image" }
             </Link<Route>>

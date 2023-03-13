@@ -1,5 +1,6 @@
 mod block;
 mod content;
+mod icon;
 mod image;
 mod notification;
 mod progress;
@@ -9,6 +10,7 @@ mod title;
 
 pub use block::Block;
 pub use content::Content;
+pub use icon::Icon;
 pub use image::Image;
 pub use notification::Notification;
 pub use progress::Progress;
