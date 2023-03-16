@@ -8,7 +8,9 @@ use crate::{
     components::code::highlight_style,
     components::nav::Nav,
     pages::{
-        elements::{Block, Content, Icon, Image, Notification, Progress, Table, Tag, Title},
+        elements::{
+            Block, Content, Delete, Icon, Image, Notification, Progress, Table, Tag, Title,
+        },
         home::Home,
         layout::Container,
         page_not_found::PageNotFound,
@@ -25,6 +27,8 @@ pub enum Route {
     Block,
     #[at("/elements/content/")]
     Content,
+    #[at("/elements/delete/")]
+    Delete,
     #[at("/elements/icon/")]
     Icon,
     #[at("/elements/image/")]
@@ -119,6 +123,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::Content => {
             html! { <Content /> }
+        }
+        Route::Delete => {
+            html! { <Delete /> }
         }
         Route::Icon => {
             html! { <Icon /> }

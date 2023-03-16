@@ -1,5 +1,6 @@
 mod block;
 mod content;
+mod delete;
 mod icon;
 mod image;
 mod notification;
@@ -10,6 +11,7 @@ mod title;
 
 pub use block::Block;
 pub use content::Content;
+pub use delete::Delete;
 pub use icon::Icon;
 pub use image::Image;
 pub use notification::Notification;
