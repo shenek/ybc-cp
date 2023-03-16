@@ -13,6 +13,7 @@ use crate::{
         },
         home::Home,
         layout::Container,
+        components::Message,
         page_not_found::PageNotFound,
     },
 };
@@ -43,6 +44,8 @@ pub enum Route {
     Tag,
     #[at("/elements/title/")]
     Title,
+    #[at("/components/message/")]
+    Message,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -150,6 +153,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::NotFound => {
             html! { <PageNotFound /> }
+        }
+        Route::Message => {
+            html! { <Message />}
         }
     }
 }
