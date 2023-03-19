@@ -12,7 +12,7 @@ use crate::{
             Block, Content, Delete, Icon, Image, Notification, Progress, Table, Tag, Title,
         },
         home::Home,
-        layout::Container,
+        layout::{Container, MediaObject},
         components::Message,
         page_not_found::PageNotFound,
     },
@@ -24,6 +24,8 @@ pub enum Route {
     Home,
     #[at("/layout/container/")]
     Container,
+    #[at("/layout/media_object/")]
+    MediaObject,
     #[at("/elements/block/")]
     Block,
     #[at("/elements/content/")]
@@ -120,6 +122,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::Container => {
             html! { <Container /> }
+        }
+        Route::MediaObject => {
+            html! { <MediaObject /> }
         }
         Route::Block => {
             html! { <Block /> }

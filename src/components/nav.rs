@@ -55,6 +55,9 @@ pub fn nav() -> Html {
             <Link<Route> classes={classes!("navbar-item")} to={Route::Container}>
                 { "Container" }
             </Link<Route>>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::MediaObject}>
+                { "Media Object" }
+            </Link<Route>>
         </ybc::NavbarDropdown>
         </>
     };
