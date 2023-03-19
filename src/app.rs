@@ -12,7 +12,7 @@ use crate::{
             Block, Content, Delete, Icon, Image, Notification, Progress, Table, Tag, Title,
         },
         home::Home,
-        layout::{Container, MediaObject},
+        layout::{Container, MediaObject, Footer},
         components::Message,
         page_not_found::PageNotFound,
     },
@@ -26,6 +26,8 @@ pub enum Route {
     Container,
     #[at("/layout/media_object/")]
     MediaObject,
+    #[at("/layout/footer/")]
+    Footer,
     #[at("/elements/block/")]
     Block,
     #[at("/elements/content/")]
@@ -53,8 +55,8 @@ pub enum Route {
     NotFound,
 }
 
-#[function_component(Footer)]
-pub fn footer() -> Html {
+#[function_component(YbcCpFooter)]
+pub fn ybc_cp_footer() -> Html {
     html! {
         <ybc::Footer>
             <ybc::Content classes={classes!("has-text-centered")} tag={"div"}>
@@ -79,7 +81,7 @@ pub fn app() -> Html {
             <Nav />
             <main>
                 <Switch<Route> render={switch} />
-                <Footer />
+                <YbcCpFooter />
             </main>
         </BrowserRouter>
         {highlight_style()}
@@ -125,6 +127,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::MediaObject => {
             html! { <MediaObject /> }
+        }
+        Route::Footer => {
+            html! { <Footer /> }
         }
         Route::Block => {
             html! { <Block /> }
