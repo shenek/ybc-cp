@@ -1,0 +1,73 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "docs"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    name: Compile and Publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+        with:
+          submodules: recursive
+
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: Install wasm toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          target: wasm32-unknown-unknown
+
+      - name: Install trunk
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: --locked trunk
+
+      - name: Install wasm-bindgen-cli
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: --locked wasm-bindgen-cli
+
+      - name: Build docs
+        run: trunk build --public-url /ybc-cp/ --release --dist docs
+
+      - name: Setup Pages
+        uses: actions/configure-pages@master
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@master
+        with:
+          path: docs/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@master
