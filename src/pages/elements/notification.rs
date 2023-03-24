@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(Notification)]
@@ -149,28 +151,34 @@ html! {
         }
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Notification".to_owned(),
+            id: "notification".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Notification colors".to_owned(),
+            id: "notification-colors".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+        description::Item {
+            title: "Notification light colors".to_owned(),
+            id: "notification-light-colors".to_owned(),
+            code: code_3.to_owned(),
+            html: Rc::new(preview_3),
+        },
+        description::Item {
+            title: "Notification close".to_owned(),
+            id: "notification-close".to_owned(),
+            code: code_4.to_owned(),
+            html: Rc::new(preview_4),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Notification"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Notification colors"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Notification light colors"}</ybc::Title>
-                <Preview html={preview_3} />
-                <Code code={code_3}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Notification close"}</ybc::Title>
-                <Preview html={preview_4} />
-                <Code code={code_4}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

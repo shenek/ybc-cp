@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(Progress)]
@@ -93,33 +95,40 @@ html! {
         </>
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Progress".to_owned(),
+            id: "progress".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Progress colors".to_owned(),
+            id: "progress-colors".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+        description::Item {
+            title: "Progress sizes".to_owned(),
+            id: "progress-sizes".to_owned(),
+            code: code_3.to_owned(),
+            html: Rc::new(preview_3),
+        },
+        description::Item {
+            title: "Progress indeterminate".to_owned(),
+            id: "progress-indeterminate".to_owned(),
+            code: code_4.to_owned(),
+            html: Rc::new(preview_4),
+        },
+        description::Item {
+            title: "Progress usage".to_owned(),
+            id: "progress-usage".to_owned(),
+            code: code_5.to_owned(),
+            html: Rc::new(preview_5),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Progress"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Progress colors"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Progress sizes"}</ybc::Title>
-                <Preview html={preview_3} />
-                <Code code={code_3}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Progress indeterminate"}</ybc::Title>
-                <Preview html={preview_4} />
-                <Code code={code_4}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Progress usage"}</ybc::Title>
-                <Preview html={preview_5} />
-                <Code code={code_5}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

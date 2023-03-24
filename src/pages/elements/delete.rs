@@ -1,4 +1,5 @@
-use crate::components::{code::Code, preview::Preview};
+use crate::components::description;
+use std::rc::Rc;
 use yew::prelude::*;
 
 #[function_component(Delete)]
@@ -66,23 +67,28 @@ pub fn delete() -> Html {
         </>
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Delete".to_owned(),
+            id: "delete".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Delete sizes".to_owned(),
+            id: "delete-sizes".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+        description::Item {
+            title: "Delete combinations".to_owned(),
+            id: "delete-combinations".to_owned(),
+            code: code_3.to_owned(),
+            html: Rc::new(preview_3),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Delete"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Delete sizes"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Delete combinations"}</ybc::Title>
-                <Preview html={preview_3} />
-                <Code code={code_3}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

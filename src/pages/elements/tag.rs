@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(Tag)]
@@ -192,38 +194,46 @@ html! {
         </ybc::Tags>
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Tag".to_owned(),
+            id: "tag".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Tag colors".to_owned(),
+            id: "tag-colors".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+        description::Item {
+            title: "Tag light colors".to_owned(),
+            id: "tag-light-colors".to_owned(),
+            code: code_3.to_owned(),
+            html: Rc::new(preview_3),
+        },
+        description::Item {
+            title: "Tag sizes".to_owned(),
+            id: "tag-sizes".to_owned(),
+            code: code_4.to_owned(),
+            html: Rc::new(preview_4),
+        },
+        description::Item {
+            title: "Tag modifiers, combinations and addons".to_owned(),
+            id: "tag-modifiers".to_owned(),
+            code: code_5.to_owned(),
+            html: Rc::new(preview_5),
+        },
+        description::Item {
+            title: "Tag hooks".to_owned(),
+            id: "tag-hooks".to_owned(),
+            code: code_6.to_owned(),
+            html: Rc::new(preview_6),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Tag"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Tag colors"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Tag light colors"}</ybc::Title>
-                <Preview html={preview_3} />
-                <Code code={code_3}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Tag sizes"}</ybc::Title>
-                <Preview html={preview_4} />
-                <Code code={code_4}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Tag modifiers, combinations and addons"}</ybc::Title>
-                <Preview html={preview_5} />
-                <Code code={code_5}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Tag hooks"}</ybc::Title>
-                <Preview html={preview_6} />
-                <Code code={code_6}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

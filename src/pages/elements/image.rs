@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(Image)]
@@ -387,28 +389,34 @@ pub fn image() -> Html {
         </>
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Image".to_owned(),
+            id: "Image".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Image fixed sizes".to_owned(),
+            id: "image-fixed-sizes".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+        description::Item {
+            title: "Image rounded".to_owned(),
+            id: "image-rounded".to_owned(),
+            code: code_3.to_owned(),
+            html: Rc::new(preview_3),
+        },
+        description::Item {
+            title: "Image ratio".to_owned(),
+            id: "image-ration".to_owned(),
+            code: code_4.to_owned(),
+            html: Rc::new(preview_4),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Image"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Image fixed sizes"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Image rounded"}</ybc::Title>
-                <Preview html={preview_3} />
-                <Code code={code_3}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Image ratio"}</ybc::Title>
-                <Preview html={preview_4} />
-                <Code code={code_4}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

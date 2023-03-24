@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(Footer)]
@@ -17,13 +19,15 @@ pub fn footer() -> Html {
             </ybc::Content>
         </ybc::Footer>
     };
+
+    let descriptions = vec![description::Item {
+        title: "Footer".to_owned(),
+        id: "footer".to_owned(),
+        code: code_1.to_owned(),
+        html: Rc::new(preview_1),
+    }];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Footer"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

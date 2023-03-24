@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(Table)]
@@ -550,43 +552,52 @@ pub fn table() -> Html {
         </ybc::Table>
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Table".to_owned(),
+            id: "table".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Table bordered".to_owned(),
+            id: "table-bordered".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+        description::Item {
+            title: "Table striped".to_owned(),
+            id: "table-striped".to_owned(),
+            code: code_3.to_owned(),
+            html: Rc::new(preview_3),
+        },
+        description::Item {
+            title: "Table narrow".to_owned(),
+            id: "table-narrow".to_owned(),
+            code: code_4.to_owned(),
+            html: Rc::new(preview_4),
+        },
+        description::Item {
+            title: "Table hoverable".to_owned(),
+            id: "table-hoverable".to_owned(),
+            code: code_5.to_owned(),
+            html: Rc::new(preview_5),
+        },
+        description::Item {
+            title: "Table fullwidth".to_owned(),
+            id: "table-fullwidth".to_owned(),
+            code: code_6.to_owned(),
+            html: Rc::new(preview_6),
+        },
+        description::Item {
+            title: "Table scrollable".to_owned(),
+            id: "table-scrollable".to_owned(),
+            code: code_7.to_owned(),
+            html: Rc::new(preview_7),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Table"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Table bordered"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Table striped"}</ybc::Title>
-                <Preview html={preview_3} />
-                <Code code={code_3}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Table narrow"}</ybc::Title>
-                <Preview html={preview_4} />
-                <Code code={code_4}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Table hoverable"}</ybc::Title>
-                <Preview html={preview_5} />
-                <Code code={code_5}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Table fullwidth"}</ybc::Title>
-                <Preview html={preview_6} />
-                <Code code={code_6}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Table scrollable"}</ybc::Title>
-                <Preview html={preview_7} />
-                <Code code={code_7}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

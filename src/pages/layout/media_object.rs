@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(MediaObject)]
@@ -213,18 +215,22 @@ pub fn media_object() -> Html {
         </>
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Media Object".to_owned(),
+            id: "media-object".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Nested Media Object".to_owned(),
+            id: "nested-media-object".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Media Object"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Nested Media Object"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

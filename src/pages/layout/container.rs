@@ -1,6 +1,8 @@
+use std::rc::Rc;
+
 use yew::prelude::*;
 
-use crate::components::{code::Code, preview::Preview};
+use crate::components::description;
 
 #[function_component(Container)]
 pub fn container() -> Html {
@@ -28,18 +30,22 @@ pub fn container() -> Html {
 
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Container".to_owned(),
+            id: "container".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Container Fluid".to_owned(),
+            id: "container-fluid".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Container"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Container Fluid"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

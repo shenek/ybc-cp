@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(Icon)]
@@ -264,43 +266,52 @@ html! {
         </ybc::Icon>
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Icon".to_owned(),
+            id: "icon".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Icon text".to_owned(),
+            id: "icon-text".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+        description::Item {
+            title: "Icon texts".to_owned(),
+            id: "icon-texts".to_owned(),
+            code: code_3.to_owned(),
+            html: Rc::new(preview_3),
+        },
+        description::Item {
+            title: "Icon colors".to_owned(),
+            id: "icon-colors".to_owned(),
+            code: code_4.to_owned(),
+            html: Rc::new(preview_4),
+        },
+        description::Item {
+            title: "Icon text colors".to_owned(),
+            id: "icon-text-colors".to_owned(),
+            code: code_5.to_owned(),
+            html: Rc::new(preview_5),
+        },
+        description::Item {
+            title: "Icon sizes".to_owned(),
+            id: "icon-sizes".to_owned(),
+            code: code_6.to_owned(),
+            html: Rc::new(preview_6),
+        },
+        description::Item {
+            title: "Icon onclick".to_owned(),
+            id: "icon-onclick".to_owned(),
+            code: code_7.to_owned(),
+            html: Rc::new(preview_7),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Icon"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Icon text"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Icon texts"}</ybc::Title>
-                <Preview html={preview_3} />
-                <Code code={code_3}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Icon colors"}</ybc::Title>
-                <Preview html={preview_4} />
-                <Code code={code_4}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Icon text colors"}</ybc::Title>
-                <Preview html={preview_5} />
-                <Code code={code_5}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Icon sizes"}</ybc::Title>
-                <Preview html={preview_6} />
-                <Code code={code_6}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Icon onclick"}</ybc::Title>
-                <Preview html={preview_7} />
-                <Code code={code_7}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }

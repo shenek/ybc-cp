@@ -1,4 +1,6 @@
-use crate::components::{code::Code, preview::Preview};
+use std::rc::Rc;
+
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(Title)]
@@ -56,23 +58,28 @@ pub fn title() -> Html {
         </>
     };
 
+    let descriptions = vec![
+        description::Item {
+            title: "Title and Subtitle".to_owned(),
+            id: "title".to_owned(),
+            code: code_1.to_owned(),
+            html: Rc::new(preview_1),
+        },
+        description::Item {
+            title: "Title and Subtitle spaced".to_owned(),
+            id: "title-spaced".to_owned(),
+            code: code_2.to_owned(),
+            html: Rc::new(preview_2),
+        },
+        description::Item {
+            title: "Title and Subtitle sizes".to_owned(),
+            id: "title-sizes".to_owned(),
+            code: code_3.to_owned(),
+            html: Rc::new(preview_3),
+        },
+    ];
+
     html! {
-        <ybc::Container>
-            <ybc::Section>
-                <ybc::Title>{"Title and Subtitle"}</ybc::Title>
-                <Preview html={preview_1} />
-                <Code code={code_1}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Title and Subtitle spaced"}</ybc::Title>
-                <Preview html={preview_2} />
-                <Code code={code_2}/>
-            </ybc::Section>
-            <ybc::Section>
-                <ybc::Title>{"Title and Subtitle sizes"}</ybc::Title>
-                <Preview html={preview_3} />
-                <Code code={code_3}/>
-            </ybc::Section>
-        </ybc::Container>
+        <description::Description items={descriptions} />
     }
 }
