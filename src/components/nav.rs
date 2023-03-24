@@ -6,14 +6,15 @@ use crate::Route;
 #[function_component(Nav)]
 pub fn nav() -> Html {
     let navbrand = html! {
-        <ybc::NavbarItem tag={ybc::NavbarItemTag::Div} classes={classes!("is-size-3")}>{ "YBC - C&P" }</ybc::NavbarItem>
+        <Link<Route> classes={classes!("navbar-item")} to={Route::Home}>
+            <ybc::NavbarItem tag={ybc::NavbarItemTag::Div} classes={classes!("is-size-3")}>
+                    { "YBC - C&P" }
+            </ybc::NavbarItem>
+        </Link<Route>>
     };
 
     let navstart = html! {
         <>
-        <Link<Route> classes={classes!("navbar-item")} to={Route::Home}>
-            { "Home" }
-        </Link<Route>>
         <ybc::NavbarDropdown navlink={html!{"Elements"}}>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Block}>
                 { "Block" }
