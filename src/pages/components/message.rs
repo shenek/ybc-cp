@@ -353,7 +353,25 @@ pub fn message() -> Html {
         },
     ];
 
+    let api: Vec<description::Api> = vec![
+        (
+            "<ybc::Message>",
+            "https://docs.rs/ybc/latest/ybc/struct.MessageProps.html",
+        )
+            .into(),
+        (
+            "<ybc::MessageHeader>",
+            "https://docs.rs/ybc/latest/ybc/struct.MessageHeaderProps.html",
+        )
+            .into(),
+        (
+            "<ybc::MessageBody>",
+            "https://docs.rs/ybc/latest/ybc/struct.MessageBodyProps.html",
+        )
+            .into(),
+    ];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

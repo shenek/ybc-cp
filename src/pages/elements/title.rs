@@ -79,7 +79,20 @@ pub fn title() -> Html {
         },
     ];
 
+    let api: Vec<description::Api> = vec![
+        (
+            "<ybc::Title>",
+            "https://docs.rs/ybc/latest/ybc/struct.TitleProps.html",
+        )
+            .into(),
+        (
+            "<ybc::Subtitle>",
+            "https://docs.rs/ybc/latest/ybc/struct.SubtitleProps.html",
+        )
+            .into(),
+    ];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

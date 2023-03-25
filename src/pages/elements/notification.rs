@@ -178,7 +178,13 @@ html! {
         },
     ];
 
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Notification>",
+        "https://docs.rs/ybc/latest/ybc/struct.NotificationProps.html",
+    )
+        .into()];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

@@ -230,7 +230,30 @@ pub fn media_object() -> Html {
         },
     ];
 
+    let api: Vec<description::Api> = vec![
+        (
+            "<ybc::Media>",
+            "https://docs.rs/ybc/latest/ybc/struct.MediaProps.html",
+        )
+            .into(),
+        (
+            "<ybc::MediaContent>",
+            "https://docs.rs/ybc/latest/ybc/struct.MediaContentProps.html",
+        )
+            .into(),
+        (
+            "<ybc::MediaLeft>",
+            "https://docs.rs/ybc/latest/ybc/struct.MediaLeftProps.html",
+        )
+            .into(),
+        (
+            "<ybc::MediaRight>",
+            "https://docs.rs/ybc/latest/ybc/struct.MediaRightProps.html",
+        )
+            .into(),
+    ];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

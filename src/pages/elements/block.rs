@@ -16,16 +16,19 @@ pub fn block() -> Html {
         </ybc::Block>
     };
 
-    let descriptions = vec![
-        description::Item {
-            title: "Block".to_owned(),
-            id: "block".to_owned(),
-            code: code_1.to_owned(),
-            html: Rc::new(preview_1),
-        }
-        
-    ];
+    let descriptions = vec![description::Item {
+        title: "Block".to_owned(),
+        id: "block".to_owned(),
+        code: code_1.to_owned(),
+        html: Rc::new(preview_1),
+    }];
+
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Block>",
+        "https://docs.rs/ybc/latest/ybc/struct.BlockProps.html",
+    )
+        .into()];
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

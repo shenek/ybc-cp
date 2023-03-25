@@ -311,7 +311,13 @@ html! {
         },
     ];
 
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Icon>",
+        "https://docs.rs/ybc/latest/ybc/struct.IconProps.html",
+    )
+        .into()];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

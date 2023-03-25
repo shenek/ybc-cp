@@ -8,12 +8,12 @@ use crate::{
     components::code::highlight_style,
     components::nav::Nav,
     pages::{
+        components::Message,
         elements::{
             Block, Content, Delete, Icon, Image, Notification, Progress, Table, Tag, Title,
         },
         home::Home,
-        layout::{Container, MediaObject, Footer},
-        components::Message,
+        layout::{Container, Footer, MediaObject},
         page_not_found::PageNotFound,
     },
 };

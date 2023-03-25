@@ -157,7 +157,7 @@ html! {
                 "Checked"
              
             } else {
-                "Un checked"
+                "Unchecked"
             }
         }</ybc::Tag>
         <ybc::Tag 
@@ -181,7 +181,7 @@ html! {
                     "Checked"
 
                 } else {
-                    "Un checked"
+                    "Unchecked"
                 }
             }</ybc::Tag>
             <ybc::Tag
@@ -233,7 +233,20 @@ html! {
         },
     ];
 
+    let api: Vec<description::Api> = vec![
+        (
+            "<ybc::Tag>",
+            "https://docs.rs/ybc/latest/ybc/struct.TagProps.html",
+        )
+            .into(),
+        (
+            "<ybc::Tags>",
+            "https://docs.rs/ybc/latest/ybc/struct.TagsProps.html",
+        )
+            .into(),
+    ];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

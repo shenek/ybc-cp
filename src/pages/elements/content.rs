@@ -214,7 +214,7 @@ pub fn content() -> Html {
 
     let descriptions = vec![
         description::Item {
-            title: "Block".to_owned(),
+            title: "Content".to_owned(),
             id: "content".to_owned(),
             code: code_1.to_owned(),
             html: Rc::new(preview_1),
@@ -233,7 +233,13 @@ pub fn content() -> Html {
         },
     ];
 
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Content>",
+        "https://docs.rs/ybc/latest/ybc/struct.ContentProps.html",
+    )
+        .into()];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

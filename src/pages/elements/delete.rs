@@ -88,7 +88,13 @@ pub fn delete() -> Html {
         },
     ];
 
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Delete>",
+        "https://docs.rs/ybc/latest/ybc/struct.DeleteProps.html",
+    )
+        .into()];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

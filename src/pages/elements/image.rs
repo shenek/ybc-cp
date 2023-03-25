@@ -416,7 +416,13 @@ pub fn image() -> Html {
         },
     ];
 
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Image>",
+        "https://docs.rs/ybc/latest/ybc/struct.ImageProps.html",
+    )
+        .into()];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

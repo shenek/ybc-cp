@@ -128,7 +128,13 @@ html! {
         },
     ];
 
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Progress>",
+        "https://docs.rs/ybc/latest/ybc/struct.ProgressProps.html",
+    )
+        .into()];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

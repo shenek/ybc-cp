@@ -27,7 +27,13 @@ pub fn footer() -> Html {
         html: Rc::new(preview_1),
     }];
 
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Footer>",
+        "https://docs.rs/ybc/latest/ybc/struct.FooterProps.html",
+    )
+        .into()];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }

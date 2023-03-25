@@ -597,7 +597,13 @@ pub fn table() -> Html {
         },
     ];
 
+    let api: Vec<description::Api> = vec![(
+        "<ybc::Table>",
+        "https://docs.rs/ybc/latest/ybc/struct.TableProps.html",
+    )
+        .into()];
+
     html! {
-        <description::Description items={descriptions} />
+        <description::Description items={descriptions} {api} />
     }
 }
