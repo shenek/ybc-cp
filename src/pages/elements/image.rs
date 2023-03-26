@@ -1,10 +1,12 @@
 use std::rc::Rc;
 
-use crate::components::description;
+use crate::{components::description, pages::base_uri};
 use yew::prelude::*;
 
 #[function_component(Image)]
 pub fn image() -> Html {
+    let base_uri = base_uri();
+
     let code_1 = r#"html! {
     <ybc::Image size={ybc::ImageSize::Is128x128}>
         <img src={"/images/placeholders/128x128.png"} />
@@ -12,7 +14,7 @@ pub fn image() -> Html {
 }"#;
     let preview_1 = html! {
         <ybc::Image size={ybc::ImageSize::Is128x128}>
-            <img src={"/images/placeholders/128x128.png"} />
+            <img src={format!("{}/images/placeholders/128x128.png", base_uri)} />
         </ybc::Image>
     };
 
@@ -42,25 +44,25 @@ pub fn image() -> Html {
     let preview_2 = html! {
         <>
         <ybc::Image size={ybc::ImageSize::Is16x16}>
-            <img src={"/images/placeholders/16x16.png"} />
+            <img src={format!("{}/images/placeholders/16x16.png", base_uri)} />
         </ybc::Image>
         <ybc::Image size={ybc::ImageSize::Is24x24}>
-            <img src={"/images/placeholders/24x24.png"} />
+            <img src={format!("{}/images/placeholders/24x24.png", base_uri)} />
         </ybc::Image>
         <ybc::Image size={ybc::ImageSize::Is32x32}>
-            <img src={"/images/placeholders/32x32.png"} />
+            <img src={format!("{}/images/placeholders/32x32.png", base_uri)} />
         </ybc::Image>
         <ybc::Image size={ybc::ImageSize::Is48x48}>
-            <img src={"/images/placeholders/48x48.png"} />
+            <img src={format!("{}/images/placeholders/48x48.png", base_uri)} />
         </ybc::Image>
         <ybc::Image size={ybc::ImageSize::Is64x64}>
-            <img src={"/images/placeholders/64x64.png"} />
+            <img src={format!("{}/images/placeholders/64x64.png", base_uri)} />
         </ybc::Image>
         <ybc::Image size={ybc::ImageSize::Is96x96}>
-            <img src={"/images/placeholders/96x96.png"} />
+            <img src={format!("{}/images/placeholders/96x96.png", base_uri)} />
         </ybc::Image>
         <ybc::Image size={ybc::ImageSize::Is128x128}>
-            <img src={"/images/placeholders/128x128.png"} />
+            <img src={format!("{}/images/placeholders/128x128.png", base_uri)} />
         </ybc::Image>
         </>
     };
@@ -77,7 +79,7 @@ pub fn image() -> Html {
         <ybc::Image size={ybc::ImageSize::Is128x128}>
             <img
               class={classes!("is-rounded")}
-              src={"/images/placeholders/128x128.png"}
+              src={format!("{}/images/placeholders/128x128.png", base_uri)}
             />
         </ybc::Image>
     };
@@ -242,7 +244,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is1by1}>
-                        <img src={"/images/placeholders/480x480.png"} />
+                        <img src={format!("{}/images/placeholders/480x480.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -252,7 +254,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is5by4}>
-                        <img src={"/images/placeholders/600x480.png"} />
+                        <img src={format!("{}/images/placeholders/600x480.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -262,7 +264,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is4by3}>
-                        <img src={"/images/placeholders/640x480.png"} />
+                        <img src={format!("{}/images/placeholders/640x480.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -272,7 +274,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is3by2}>
-                        <img src={"/images/placeholders/480x320.png"} />
+                        <img src={format!("{}/images/placeholders/480x320.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -282,7 +284,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is5by3}>
-                        <img src={"/images/placeholders/800x480.png"} />
+                        <img src={format!("{}/images/placeholders/800x480.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -292,7 +294,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is16by9}>
-                        <img src={"/images/placeholders/640x360.png"} />
+                        <img src={format!("{}/images/placeholders/640x360.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -302,7 +304,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is2by1}>
-                        <img src={"/images/placeholders/640x320.png"} />
+                        <img src={format!("{}/images/placeholders/640x320.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -312,7 +314,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is3by1}>
-                        <img src={"/images/placeholders/720x240.png"} />
+                        <img src={format!("{}/images/placeholders/720x240.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -322,7 +324,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is4by5}>
-                        <img src={"/images/placeholders/480x600.png"} />
+                        <img src={format!("{}/images/placeholders/480x600.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -332,7 +334,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is3by4}>
-                        <img src={"/images/placeholders/480x640.png"} />
+                        <img src={format!("{}/images/placeholders/480x640.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -342,7 +344,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is2by3}>
-                        <img src={"/images/placeholders/320x480.png"} />
+                        <img src={format!("{}/images/placeholders/320x480.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -352,7 +354,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is3by5}>
-                        <img src={"/images/placeholders/480x800.png"} />
+                        <img src={format!("{}/images/placeholders/480x800.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -362,7 +364,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is9by16}>
-                        <img src={"/images/placeholders/360x640.png"} />
+                        <img src={format!("{}/images/placeholders/360x640.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -372,7 +374,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is1by2}>
-                        <img src={"/images/placeholders/320x640.png"} />
+                        <img src={format!("{}/images/placeholders/320x640.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>
@@ -382,7 +384,7 @@ pub fn image() -> Html {
                 </ybc::Column>
                 <ybc::Column>
                     <ybc::Image size={ybc::ImageSize::Is1by3}>
-                        <img src={"/images/placeholders/240x720.png"} />
+                        <img src={format!("{}/images/placeholders/240x720.png", base_uri)} />
                     </ybc::Image>
                 </ybc::Column>
         </ybc::Columns>

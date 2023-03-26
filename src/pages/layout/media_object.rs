@@ -1,10 +1,12 @@
 use std::rc::Rc;
 
-use crate::components::description;
+use crate::{components::description, pages::base_uri};
 use yew::prelude::*;
 
 #[function_component(MediaObject)]
 pub fn media_object() -> Html {
+    let base_uri = base_uri();
+
     let code_1 = r#"html! {
     <ybc::Media>
         <ybc::MediaLeft>
@@ -30,7 +32,7 @@ pub fn media_object() -> Html {
         <ybc::Media>
             <ybc::MediaLeft>
                 <ybc::Image size={ybc::ImageSize::Is64x64}>
-                    <img src={"/images/placeholders/64x64.png"} />
+                    <img src={format!("{}/images/placeholders/64x64.png", base_uri)} />
                 </ybc::Image>
             </ybc::MediaLeft>
             <ybc::MediaContent>
@@ -135,7 +137,7 @@ pub fn media_object() -> Html {
         <ybc::Media>
             <ybc::MediaLeft>
                 <ybc::Image size={ybc::ImageSize::Is64x64}>
-                    <img src={"/images/placeholders/64x64.png"} />
+                    <img src={format!("{}/images/placeholders/64x64.png", base_uri)} />
                 </ybc::Image>
             </ybc::MediaLeft>
             <ybc::MediaContent>
@@ -149,7 +151,7 @@ pub fn media_object() -> Html {
                 <ybc::Media>
                     <ybc::MediaLeft>
                         <ybc::Image size={ybc::ImageSize::Is64x64}>
-                            <img src={"/images/placeholders/64x64.png"} />
+                            <img src={format!("{}/images/placeholders/64x64.png", base_uri)} />
                         </ybc::Image>
                     </ybc::MediaLeft>
                     <ybc::MediaContent>
@@ -163,7 +165,7 @@ pub fn media_object() -> Html {
                         <ybc::Media>
                             <ybc::MediaLeft>
                                 <ybc::Image size={ybc::ImageSize::Is64x64}>
-                                    <img src={"/images/placeholders/64x64.png"} />
+                                    <img src={format!("{}/images/placeholders/64x64.png", base_uri)} />
                                 </ybc::Image>
                             </ybc::MediaLeft>
                             <ybc::MediaContent>
@@ -181,7 +183,7 @@ pub fn media_object() -> Html {
                 <ybc::Media>
                     <ybc::MediaLeft>
                         <ybc::Image size={ybc::ImageSize::Is64x64}>
-                            <img src={"/images/placeholders/64x64.png"} />
+                            <img src={format!("{}/images/placeholders/64x64.png", base_uri)} />
                         </ybc::Image>
                     </ybc::MediaLeft>
                     <ybc::MediaContent>
@@ -199,7 +201,7 @@ pub fn media_object() -> Html {
         <ybc::Media>
             <ybc::MediaLeft>
                 <ybc::Image size={ybc::ImageSize::Is64x64}>
-                    <img src={"/images/placeholders/64x64.png"} />
+                    <img src={format!("{}/images/placeholders/64x64.png", base_uri)} />
                 </ybc::Image>
             </ybc::MediaLeft>
             <ybc::MediaContent>

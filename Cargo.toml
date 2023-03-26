@@ -9,3 +9,4 @@ syntect = { version = "5.0.0", default-features = false, features = ["default-fa
 ybc = "0.4.0-beta.0"
 yew = { version = "0.20", features = ["csr"]}
 yew-router = "0.17"
+web-sys = { version = "0.3", features = ["Document", "Window"] }
