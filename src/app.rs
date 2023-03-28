@@ -8,7 +8,7 @@ use crate::{
     components::code::highlight_style,
     components::nav::Nav,
     pages::{
-        components::Message,
+        components::{Menu, Message},
         elements::{
             Block, Content, Delete, Icon, Image, Notification, Progress, Table, Tag, Title,
         },
@@ -51,6 +51,8 @@ pub enum Route {
     Title,
     #[at("/components/message/")]
     Message,
+    #[at("/components/menu/")]
+    Menu,
     #[at("/form/general/")]
     General,
     #[not_found]
@@ -168,10 +170,13 @@ fn switch(routes: Route) -> Html {
             html! { <PageNotFound /> }
         }
         Route::Message => {
-            html! { <Message />}
+            html! { <Message /> }
+        }
+        Route::Menu => {
+            html! { <Menu /> }
         }
         Route::General => {
-            html! { <General />}
+            html! { <General /> }
         }
     }
 }
