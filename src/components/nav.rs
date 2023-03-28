@@ -47,7 +47,12 @@ pub fn nav() -> Html {
                 { "Title" }
             </Link<Route>>
         </ybc::NavbarDropdown>
-        <ybc::NavbarDropdown navlink={html!{"Components"}}>
+        <ybc::NavbarDropdown navlink={html!{"Form"}}>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::General}>
+                { "General" }
+            </Link<Route>>
+        </ybc::NavbarDropdown>
+        <ybc::NavbarDropdown navlink={html!{"Component"}}>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Message}>
                 { "Message" }
             </Link<Route>>

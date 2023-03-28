@@ -12,6 +12,7 @@ use crate::{
         elements::{
             Block, Content, Delete, Icon, Image, Notification, Progress, Table, Tag, Title,
         },
+        form::General,
         home::Home,
         layout::{Container, Footer, MediaObject},
         page_not_found::PageNotFound,
@@ -50,6 +51,8 @@ pub enum Route {
     Title,
     #[at("/components/message/")]
     Message,
+    #[at("/form/general/")]
+    General,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -166,6 +169,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::Message => {
             html! { <Message />}
+        }
+        Route::General => {
+            html! { <General />}
         }
     }
 }

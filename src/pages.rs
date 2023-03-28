@@ -1,6 +1,8 @@
 use web_sys::window;
+
 pub mod components;
 pub mod elements;
+pub mod form;
 pub mod home;
 pub mod layout;
 pub mod page_not_found;
