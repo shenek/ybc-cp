@@ -15,6 +15,11 @@ pub fn nav() -> Html {
 
     let navstart = html! {
         <>
+        <ybc::NavbarDropdown navlink={html!{"Columns"}}>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::ColumnsBasics}>
+                { "Basics" }
+            </Link<Route>>
+        </ybc::NavbarDropdown>
         <ybc::NavbarDropdown navlink={html!{"Elements"}}>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Block}>
                 { "Block" }
