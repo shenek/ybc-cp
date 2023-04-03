@@ -8,7 +8,7 @@ pub fn nav() -> Html {
     let navbrand = html! {
         <Link<Route> classes={classes!("navbar-item")} to={Route::Home}>
             <ybc::NavbarItem tag={ybc::NavbarItemTag::Div} classes={classes!("is-size-3")}>
-                    { "YBC - C&P" }
+                { "YBC - C&P" }
             </ybc::NavbarItem>
         </Link<Route>>
     };
@@ -58,6 +58,9 @@ pub fn nav() -> Html {
             </Link<Route>>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Message}>
                 { "Message" }
+            </Link<Route>>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::Pagination}>
+                { "Pagination" }
             </Link<Route>>
         </ybc::NavbarDropdown>
         <ybc::NavbarDropdown navlink={html!{"Layouts"}}>
