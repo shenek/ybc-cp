@@ -10,3 +10,19 @@ ybc = "0.4.0-beta.0"
 yew = { version = "0.20", features = ["csr"]}
 yew-router = "0.17"
 web-sys = { version = "0.3", features = ["Document", "Window"] }
+
+[profile.dev]
+opt-level = 1
+incremental = true
+
+[profile.release]
+# less code to include into binary
+panic = 'abort' 
+# optimization over all codebase ( better optimization, slower build )
+codegen-units = 1
+# optimization for size ( more aggressive )
+opt-level = 'z' 
+# optimization for size 
+# opt-level = 's' 
+# link time optimization using using whole-program analysis
+lto = true

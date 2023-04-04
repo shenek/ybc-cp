@@ -19,6 +19,9 @@ pub fn nav() -> Html {
             <Link<Route> classes={classes!("navbar-item")} to={Route::ColumnsBasics}>
                 { "Basics" }
             </Link<Route>>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::ColumnsSizes}>
+                { "Sizes" }
+            </Link<Route>>
         </ybc::NavbarDropdown>
         <ybc::NavbarDropdown navlink={html!{"Elements"}}>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Block}>
