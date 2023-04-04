@@ -15,7 +15,7 @@ use crate::{
         form::General,
         home::Home,
         layout::{Container, Footer, MediaObject},
-        columns::{ColumnsBasics, ColumnsSizes},
+        columns::{ColumnsBasics, ColumnsSizes, ColumnsResponsiveness},
         page_not_found::PageNotFound,
     },
 };
@@ -28,6 +28,8 @@ pub enum Route {
     ColumnsBasics,
     #[at("/columns/sizes/")]
     ColumnsSizes,
+    #[at("/columns/responsiveness/")]
+    ColumnsResponsiveness,
     #[at("/layout/container/")]
     Container,
     #[at("/layout/media_object/")]
@@ -193,6 +195,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::ColumnsSizes => {
             html! { <ColumnsSizes /> }
+        }
+        Route::ColumnsResponsiveness => {
+            html! { <ColumnsResponsiveness /> }
         }
     }
 }
