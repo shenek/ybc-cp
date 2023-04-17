@@ -43,16 +43,16 @@ pub fn columns_basics() -> Html {
     }];
 
     let api: Vec<description::Api> = vec![
-    (
-        "<ybc::Column>",
-        "https://docs.rs/ybc/latest/ybc/struct.ColumnProps.html",
-    )
-        .into(),
-    (
-        "<ybc::Columns>",
-        "https://docs.rs/ybc/latest/ybc/struct.ColumnsProps.html",
-    )
-        .into(),
+        (
+            "<ybc::Column>",
+            "https://docs.rs/ybc/latest/ybc/struct.ColumnProps.html",
+        )
+            .into(),
+        (
+            "<ybc::Columns>",
+            "https://docs.rs/ybc/latest/ybc/struct.ColumnsProps.html",
+        )
+            .into(),
     ];
     html! {
         <description::Description items={descriptions} {api} />

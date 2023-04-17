@@ -1,6 +1,6 @@
 use std::rc::Rc;
 
-use crate::components::{description};
+use crate::components::description;
 use yew::prelude::*;
 
 #[function_component(General)]
@@ -313,14 +313,12 @@ html! {
         </>
     };
 
-    let descriptions = vec![
-        description::Item {
-            title: "Complete form".to_string(),
-            id: "form-complete".to_string(),
-            code: code_1.to_owned(),
-            html: Rc::new(preview_1),
-        }
-    ];
+    let descriptions = vec![description::Item {
+        title: "Complete form".to_string(),
+        id: "form-complete".to_string(),
+        code: code_1.to_owned(),
+        html: Rc::new(preview_1),
+    }];
 
     let api: Vec<description::Api> = vec![
         (
@@ -368,5 +366,4 @@ html! {
     html! {
         <description::Description items={descriptions} {api} />
     }
-
 }

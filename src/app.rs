@@ -8,6 +8,7 @@ use crate::{
     components::code::highlight_style,
     components::nav::Nav,
     pages::{
+        columns::{ColumnsBasics, ColumnsGap, ColumnsNesting, ColumnsResponsiveness, ColumnsSizes},
         components::{Menu, Message, Pagination},
         elements::{
             Block, Content, Delete, Icon, Image, Notification, Progress, Table, Tag, Title,
@@ -15,7 +16,6 @@ use crate::{
         form::General,
         home::Home,
         layout::{Container, Footer, MediaObject},
-        columns::{ColumnsBasics, ColumnsSizes, ColumnsResponsiveness, ColumnsNesting},
         page_not_found::PageNotFound,
     },
 };
@@ -32,6 +32,8 @@ pub enum Route {
     ColumnsResponsiveness,
     #[at("/columns/nesting/")]
     ColumnsNesting,
+    #[at("/columns/gap/")]
+    ColumnsGap,
     #[at("/layout/container/")]
     Container,
     #[at("/layout/media_object/")]
@@ -203,6 +205,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::ColumnsNesting => {
             html! { <ColumnsNesting /> }
+        }
+        Route::ColumnsGap => {
+            html! { <ColumnsGap /> }
         }
     }
 }

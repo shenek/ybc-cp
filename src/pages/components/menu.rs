@@ -1,4 +1,3 @@
-
 use std::rc::Rc;
 
 use crate::components::description;
@@ -66,14 +65,12 @@ pub fn menu() -> Html {
             </ybc::MenuList>
         </ybc::Menu>
     };
-    let descriptions = vec![
-        description::Item {
-            title: "Menu".to_owned(),
-            id: "menu".to_owned(),
-            code: code_1.to_owned(),
-            html: Rc::new(preview_1),
-        },
-    ];
+    let descriptions = vec![description::Item {
+        title: "Menu".to_owned(),
+        id: "menu".to_owned(),
+        code: code_1.to_owned(),
+        html: Rc::new(preview_1),
+    }];
 
     let api: Vec<description::Api> = vec![
         (

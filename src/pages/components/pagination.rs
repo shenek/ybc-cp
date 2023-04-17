@@ -125,14 +125,12 @@ html! {
         </ybc::Pagination>
     };
 
-    let descriptions = vec![
-        description::Item {
-            title: "Pagination 1".to_owned(),
-            id: "pagination1".to_owned(),
-            code: code_1.to_owned(),
-            html: Rc::new(preview_1),
-        },
-    ];
+    let descriptions = vec![description::Item {
+        title: "Pagination 1".to_owned(),
+        id: "pagination1".to_owned(),
+        code: code_1.to_owned(),
+        html: Rc::new(preview_1),
+    }];
 
     let api: Vec<description::Api> = vec![
         (
