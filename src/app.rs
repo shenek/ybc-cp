@@ -8,7 +8,7 @@ use crate::{
     components::code::highlight_style,
     components::nav::Nav,
     pages::{
-        columns::{ColumnsBasics, ColumnsGap, ColumnsNesting, ColumnsResponsiveness, ColumnsSizes},
+        columns::{ColumnsBasics, ColumnsGap, ColumnsNesting, ColumnsResponsiveness, ColumnsSizes, ColumnsOptions},
         components::{Menu, Message, Pagination},
         elements::{
             Block, Content, Delete, Icon, Image, Notification, Progress, Table, Tag, Title,
@@ -34,6 +34,8 @@ pub enum Route {
     ColumnsNesting,
     #[at("/columns/gap/")]
     ColumnsGap,
+    #[at("/columns/options/")]
+    ColumnsOptions,
     #[at("/layout/container/")]
     Container,
     #[at("/layout/media_object/")]
@@ -208,6 +210,9 @@ fn switch(routes: Route) -> Html {
         }
         Route::ColumnsGap => {
             html! { <ColumnsGap /> }
+        }
+        Route::ColumnsOptions => {
+            html! { <ColumnsOptions /> }
         }
     }
 }

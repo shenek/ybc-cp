@@ -31,6 +31,9 @@ pub fn nav() -> Html {
             <Link<Route> classes={classes!("navbar-item")} to={Route::ColumnsGap}>
                 { "Gap" }
             </Link<Route>>
+            <Link<Route> classes={classes!("navbar-item")} to={Route::ColumnsOptions}>
+                { "Options" }
+            </Link<Route>>
         </ybc::NavbarDropdown>
         <ybc::NavbarDropdown navlink={html!{"Elements"}}>
             <Link<Route> classes={classes!("navbar-item")} to={Route::Block}>
